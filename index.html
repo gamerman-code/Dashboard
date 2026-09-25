@@ -31,3 +31,203 @@
     --muted: #9296ad;
     --line: #2b3150;
     --accent: #9b85ff;
+    --accent-soft: #2a2556;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161b2e;
+  --surface: #1f2540;
+  --surface-press: #2c3358;
+  --ink: #e8e9f2;
+  --muted: #9296ad;
+  --line: #2b3150;
+  --accent: #9b85ff;
+  --accent-soft: #2a2556;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 16px 28px;
+}
+
+/* Header: greeting is the one bold element */
+.top { margin: 8px 4px 20px; }
+.greeting {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--accent);
+}
+.greeting rt {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+.when {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.when time { font-size: 1.35rem; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Search */
+form { margin: 0 0 22px; }
+.search {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+}
+.search:focus { border-color: var(--accent); }
+.search::placeholder { color: var(--muted); }
+
+/* Sections */
+section { margin-bottom: 20px; }
+h2 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 4px 8px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border-radius: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.tile:active { background: var(--surface-press); }
+.tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tile b { font-size: 1.05rem; font-weight: 700; }
+.tile span { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+/* Tickers read as numbers, not apps */
+.ticker b {
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.grid.three { grid-template-columns: repeat(3, 1fr); }
+.grid.three .tile { min-height: 68px; padding: 10px 12px; }
+.grid.three .tile span { font-size: 0.72rem; }
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding-top: 8px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tile { transition: background 0.12s; }
+}
+</style>
+</head>
+<body>
+<main>
+
+  <header class="top">
+    <p class="greeting" id="greeting"><ruby>今日<rt>こんにち</rt></ruby>は</p>
+    <div class="when"><time id="clock">--:--</time><span id="date"></span></div>
+  </header>
+
+  <form action="https://search.brave.com/search" method="get" role="search">
+    <input class="search" type="search" name="q" placeholder="Search Brave" aria-label="Search Brave" autocomplete="off">
+  </form>
+
+  <section>
+    <h2>Reading &amp; watching</h2>
+    <div class="grid">
+      <a class="tile" href="https://comick.dev/"><b>Comick</b><span>Manga tracker</span></a>
+      <a class="tile" href="https://anilist.co/home"><b>AniList</b><span>Tracker</span></a>
+      <a class="tile" href="https://everythingmoe.com/"><b>EverythingMoe</b><span>Site index</span></a>
+      <a class="tile" href="https://comix.to/"><b>Comix</b><span>Manga reader</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Social</h2>
+    <div class="grid">
+      <a class="tile" href="https://x.com/home"><b>X</b><span>Timeline</span></a>
+      <a class="tile" href="https://www.instagram.com/?deoia=1"><b>Instagram</b><span>Feed</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Money</h2>
+    <div class="grid three">
+      <a class="tile" href="https://login.anz.com/internetbanking"><b>ANZ</b><span>Bank login</span></a>
+      <a class="tile" href="https://hostplus.com.au/members/manage-your-super/tools-to-manage-your-super/log-in-to-member-online"><b>Hostplus</b><span>Super login</span></a>
+      <a class="tile" href="https://www2.commsec.com.au/"><b>CommSec</b><span>Trading login</span></a>
+    </div>
+    <div class="grid" style="margin-top:8px">
+      <a class="tile ticker" href="https://marketindex.com.au/asx/ARG"><b>ARG</b><span>Argo</span></a>
+      <a class="tile ticker" href="https://marketindex.com.au/asx/VDHG"><b>VDHG</b><span>Diversified</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Work &amp; shopping</h2>
+    <div class="grid">
+      <a class="tile" href="https://ess.cloud.micropay.com.au/#/signin/"><b>ESS Portal</b><span>Payslips &amp; rosters</span></a>
+      <a class="tile" href="https://gamersupps.gg"><b>Gamer Supps</b><span>Shop</span></a>
+    </div>
+  </section>
+
+  <footer>Private start page</footer>
+</main>
+
+<script>
+(function () {
+  var greetings = {
+    morning: 'おはよう',
+    day: '<ruby>今日<rt>こんにち</rt></ruby>は',
+    evening: '<ruby>今晩<rt>こんばん</rt></ruby>は'
+  };
+  var g = document.getElementById('greeting');
+  var clock = document.getElementById('clock');
+  var date = document.getElementById('date');
+  var last = '';
+
+  function tick() {
+    var now = new Date();
+    var h = now.getHours();
+    var key = h >= 4 && h < 11 ? 'morning' : (h >= 11 && h < 17 ? 'day' : 'evening');
+    if (key !== last) { g.innerHTML = greetings[key]; last = key; }
+    clock.textContent = now.toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' });
+    date.textContent = now.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
+  }
+  tick();
+  setInterval(tick, 15000);
+})();
+</script>
+</body>
+</html>
