@@ -2,99 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#161b2e">
+<title>Start</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-* {
+:root {
+  --bg: #eef0f6;
+  --surface: #ffffff;
+  --surface-press: #e3e2f7;
+  --ink: #1a1d2b;
+  --muted: #62667a;
+  --line: #d8dae6;
+  --accent: #6d4aff;
+  --accent-soft: #ebe6ff;
   box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
-body {
-  font-family: sans-serif;
-  background: #0f0f1a;
-  color: #e0e0e0;
-  padding: 14px 14px 24px 14px;
-  margin: 0;
-  min-height: 100vh;
-  word-wrap: break-word;
-}
-h1 {
-  font-size: 1.2rem;
-  margin: 0 0 14px 0;
-  color: #6d4aff;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #2a2a3a;
-}
-h2 {
-  font-size: 0.9rem;
-  margin: 14px 0 6px 0;
-  color: #a8a8b8;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.link {
-  display: flex;
-  align-items: center;
-  padding: 11px 13px;
-  margin: 4px 0;
-  background: #1a1a2e;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #e0e0e0;
-}
-.link:active { background: #252542; }
-.icon { 
-  width: 24px; 
-  margin-right: 12px; 
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-.left-content { flex: 1; min-width: 0; }
-.right-content {
-  flex-shrink: 0;
-  font-size: 0.72rem;
-  opacity: 0.5;
-  padding-left: 12px;
-}
-.main-text { font-weight: 500; font-size: 0.95rem; }
-.sub-text { 
-  font-size: 0.72rem; 
-  opacity: 0.5; 
-  display: block;
-  margin-top: 2px;
-}
-.footer {
-  margin-top: 18px;
-  font-size: 0.68rem;
-  opacity: 0.35;
-  text-align: center;
-  padding: 8px;
-  border-top: 1px solid #2a2a3a;
-}
-</style>
-</head>
-<body>
-
-<h1>📱 Dashboard</h1>
-
-<h2>📈 Investments</h2>
-<a class="link" href="https://marketindex.com.au/asx/ARG"><span class="icon">🏢</span><div class="left-content"><div class="main-text">ARG</div></div><div class="right-content">Argo Investments</div></a>
-<a class="link" href="https://marketindex.com.au/asx/VDAL"><span class="icon">🇦🇺</span><div class="left-content"><div class="main-text">VDAL</div></div><div class="right-content">Australian Shares ETF</div></a>
-<a class="link" href="https://marketindex.com.au/asx/VDHG"><span class="icon">⚖️</span><div class="left-content"><div class="main-text">VDHG</div></div><div class="right-content">Diversified Growth ETF</div></a>
-
-<h2>🎮 Gaming</h2>
-<a class="link" href="https://gamersupps.gg"><span class="icon">⚡</span><div class="left-content"><div class="main-text">Gamer Supps</div></div><div class="right-content">Energy & supplements</div></a>
-
-<h2>🎧 Media</h2>
-<a class="link" href="https://anilist.co/home"><span class="icon">📺</span><div class="left-content"><div class="main-text">AniList</div></div><div class="right-content">Anime/Manga tracker</div></a>
-<a class="link" href="https://everythingmoe.com/"><span class="icon">🔗</span><div class="left-content"><div class="main-text">EverythingMoe</div></div><div class="right-content">Anime site index</div></a>
-<a class="link" href="https://comick.dev/"><span class="icon">📚</span><div class="left-content"><div class="main-text">Comick</div></div><div class="right-content">Manga/Webtoon Tracker</div></a>
-
-<h2>🌐 Social & Work</h2>
-<a class="link" href="https://x.com/home"><span class="icon">🐦</span><div class="left-content"><div class="main-text">X / Twitter</div></div><div class="right-content">Main Social Media</div></a>
-<a class="link" href="https://www.instagram.com/?deoia=1"><span class="icon">📷</span><div class="left-content"><div class="main-text">Instagram</div></div><div class="right-content">Social Photo Network</div></a>
-<a class="link" href="https://ess.cloud.micropay.com.au/#/signin/"><span class="icon">💼</span><div class="left-content"><div class="main-text">ESS Portal</div></div><div class="right-content">Employment Portal</div></a>
-
-<div class="footer">Local file • VPN recommended • Vanadium compatible</div>
-
-</body>
-</html>
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161b2e;
+    --surface: #1f2540;
+    --surface-press: #2c3358;
+    --ink: #e8e9f2;
+    --muted: #9296ad;
+    --line: #2b3150;
+    --accent: #9b85ff;
